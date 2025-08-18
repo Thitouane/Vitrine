@@ -1,0 +1,122 @@
+.tv-startup-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.3s 1.2s forwards;
+  pointer-events: all;
+  /* Ajoute un léger flou sur tout l'overlay */
+  backdrop-filter: blur(6px);
+}
+
+.tv-flash {
+  position: relative;
+  width: 10vw;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ajoute un flou général */
+  filter: blur(2px);
+
+}
+.tv-flash-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2vw;
+  height: 2vw;
+  background: radial-gradient(circle, white 0%, #fff 60%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: flash-center 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.tv-flash-horizontal, .tv-flash-vertical {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: white;
+  opacity: 0.7;
+  border-radius: 1vw;
+  transform: translate(-50%, -50%);
+}
+
+.tv-flash-horizontal {
+  width: 2vw;
+  height: 0.3vw;
+  animation: flash-horizontal 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.tv-flash-vertical {
+  width: 0.3vw;
+  height: 2vw;
+  animation: flash-vertical 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes flash-center {
+  0% {
+    width: 2vw;
+    height: 2vw;
+    opacity: 1;
+    filter: blur(4px);
+  }
+  60% {
+    width: 2vw;
+    height: 2vw;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+    filter: blur(40px);
+  }
+}
+
+@keyframes flash-horizontal {
+  0% {
+    width: 2vw;
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  40% {
+    width: 80vw;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    width: 100vw;
+    opacity: 0;
+    filter: blur(30px);
+  }
+}
+
+@keyframes flash-vertical {
+  0% {
+    height: 2vw;
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  40% {
+    height: 80vh;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    height: 100vh;
+    opacity: 0;
+    filter: blur(30px);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

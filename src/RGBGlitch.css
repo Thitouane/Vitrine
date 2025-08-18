@@ -1,0 +1,38 @@
+.random-glitch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center; /* garde le centrage du contenu si c'était centré */
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block; /* respecte l'alignement du texte */
+}
+
+/* texte original */
+.glitch-base {
+  position: relative;
+  display: inline-block;
+}
+
+/* duplicatas glitch RGB */
+.glitch-layer {
+  position: absolute; /* superposé par-dessus le texte original */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: inline-block;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.glitch-red {
+  color: red;
+  opacity: 0.7;
+}
+
+.glitch-cyan {
+  color: cyan;
+  opacity: 0.7;
+}
