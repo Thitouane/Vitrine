@@ -10,7 +10,7 @@ export default function TVNoiseTransition({ onEnd }) {
   }, [onEnd]);
 
   return (
-    <div className="tv-noise-overlay">
+    <div className="tv-noise-overlay crt-overlay">
       <div className="tv-noise" />
     </div>
   );
