@@ -1,10 +1,18 @@
 {
   "profile-title": "PERSONNAGE",
   "profile-name": "Nom",
-  "profile-job": "Activité",
+  "profile-birthdate": "Année de naissance",
+  "profile-nationality": "Nationalité",
+  "profile-job": "Proffesion",
   "profile-job-answer": "Développeur",
-  "profile-status": "Status",
-  "profile-status-answer": "W.I.P.",
+  "profile-hobby": "Passion",
+  "profile-hobby-answer": "Développement de jeux video, Livre, BD",
+
+  "game-title1": "Escape from the Lab",
+  "game-description1": "Platformer 2D roguelite où vous incarnez un petit robot qui tente de fuir son usine dans un monde dystopique.",
+  "game-title2": "Escape from the Office (Work In Progress)",
+  "game-description2": "When the world around you is rotting, there's only one solution... Escape!",
+
   "footer-profile": "Profil",
   "footer-games": "Jeux",
   "footer-socials": "Reseaux"

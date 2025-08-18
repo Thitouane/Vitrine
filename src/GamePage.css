@@ -1,5 +1,13 @@
 .game-container { background-color: transparent; color: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-.glitch-btn { background: #0f0; color: #000; padding: 10px 20px; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 18px; }
+.glitch-btn { 
+    background: #0f0; 
+    color: #000; 
+    padding: 10px 20px; 
+    border: none; 
+    font-weight: bold; 
+    cursor: pointer; 
+    border-radius: 5px;
+    font-size: 18px;}
 .glitch-btn:hover { background: #0c0; }
 .crt-boot { width: 960px; height: 540px; background: radial-gradient(circle, #fff 0%, #000 80%); animation: crtOn 2s forwards; }
 @keyframes crtOn { 0% { transform: scaleY(0.02); opacity: 0.8; } 30% { transform: scaleY(1.2); opacity: 1; } 100% { transform: scaleY(1); opacity: 1; } }

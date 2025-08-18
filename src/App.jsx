@@ -84,6 +84,24 @@ export default function App() {
                 </div>
                 <div className="profile-info-row">
                   <span className="profile-label">
+                    {t('profile-birthdate')} :
+                  </span>
+                  <span className="profile-value">1999</span>
+                </div>
+                 <div className="profile-info-row">
+                  <span className="profile-label">
+                    {t('profile-nationality')} :
+                  </span>
+                  <span className="profile-value">
+                    <img
+                      src="/images/fr.png"
+                      alt="Français"
+                      className="profile-value-flag"
+                    />
+                  </span>
+                </div>
+                <div className="profile-info-row">
+                  <span className="profile-label">
                     {t('profile-job')} :
                   </span>
                   <span className="profile-value">
@@ -92,10 +110,10 @@ export default function App() {
                 </div>
                 <div className="profile-info-row">
                   <span className="profile-label">
-                    {t('profile-status')} :
+                    {t('profile-hobby')} :
                   </span>
                   <span className="profile-value">
-                    {t('profile-status-answer')}
+                    {t('profile-hobby-answer')}
                   </span>
                 </div>
               </div>
@@ -117,10 +135,9 @@ export default function App() {
                   ></iframe>
                 </div>
                 <div className="retro-box">
-                  <h2>Escape from the Lab</h2>
+                  <h2>{t('game-title1')}</h2>
                   <p>
-                    Platformer 2D roguelite où vous incarnez un petit robot qui
-                    tente de fuir son usine dans un monde dystopique.
+                    {t('game-description1')}
                   </p>
                   <a href="https://www.youtube.com/watch?v=hsP46Xhn4TQ&ab_channel=ThitouaneHelle" className="download-btn">Demo</a>
                 </div>
@@ -128,10 +145,9 @@ export default function App() {
               <section className="game-section reverse">
                 <Carousel images={[game2img1, game2img2]} />
                 <div className="game-info retro-box">
-                  <h2>Escape from the Office (Work In Progress)</h2>
+                  <h2>{t('game-title1')}</h2>
                   <p>
-                    Quand le monde autour de vous est en train de pourir, une 
-                    seul solution... La fuite !
+                    {t('game-description1')}
                   </p>
                 </div>
               </section>

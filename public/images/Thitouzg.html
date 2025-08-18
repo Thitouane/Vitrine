@@ -1,8 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5173/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="./Thitouzg_files/client"></script>
+
+    
+    <link rel="icon" type="image" href="http://localhost:5173/i.png">
+    <link href="./Thitouzg_files/css2" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thitouzg</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/Thitouane/Desktop/SiteVitrine/src/App.css">@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 * {
   font-family: 'Press Start 2P', cursive !important;
 }
-
 .site-container { 
   font-family: Arial, sans-serif; 
   background-color: #1a1a1a; /* moins sombre */
@@ -15,28 +29,23 @@
   filter: contrast(120%);
   overflow-x: hidden;
 }
-
 .site-wrapper {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .scrollable-content {
   flex: 1;
   overflow-y: auto;
   padding-bottom: 100px; /* espace pour le footer */
 }
-
 .about { display: flex; align-items: center; gap: 20px; padding: 40px; max-width: 1100px; margin: 0 auto; }
-
 .profile-pic-wrapper {
   position: relative;
   width: 150px;
   height: 150px;
   display: inline-block;
 }
-
 .profile-pic {
   width: 100%;
   height: 100%;
@@ -48,7 +57,6 @@
   position: relative;
   z-index: 1;
 }
-
 .retro-profile {
   display: flex;
   justify-content: center;
@@ -58,7 +66,6 @@
   gap: 60px;
   position: relative;
 }
-
 .profile-pic-area {
   position: static;         /* Plus d'absolu */
   margin-right: 0;
@@ -66,7 +73,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .profile-pic-wrapper {
   position: relative;
   width: 180px;             /* Agrandi */
@@ -77,7 +83,6 @@
   box-shadow: 0 0 24px #0f08, 0 0 0 8px #111 inset;
   background: #181818;
 }
-
 .profile-pic {
   width: 100%;
   height: 100%;
@@ -86,7 +91,6 @@
   border: 2px solid #0f0;
   display: block;
 }
-
 .retro-title {
   font-family: "Press Start 2P", cursive;
   font-size: 1.5rem; /* ajuste selon ton écran */
@@ -103,7 +107,6 @@
   margin-bottom: 2rem;
   animation: flicker 1.5s infinite alternate;
 }
-
 .character-select-title {
   position: absolute;
   top: 40px;
@@ -115,13 +118,11 @@
   text-shadow: 2px 2px #000; /* effet rétro */
   letter-spacing: 3px;
 }
-
 @keyframes flicker {
   0%   { opacity: 1; text-shadow: 0 0 5px #ff0000, 0 0 15px #ff6600; }
   50%  { opacity: 0.8; text-shadow: 0 0 20px #ff0000, 0 0 40px #ff6600; }
   100% { opacity: 1; text-shadow: 0 0 10px #ff0000, 0 0 25px #ff6600; }
 }
-
 /* Titre "CHARACTER SELECT" : vert néon, pas de clip/gradient */
 .about.retro-profile .character-select-title {
   position: absolute;
@@ -151,7 +152,6 @@
   white-space: nowrap; /* 🔒 empêche le retour à la ligne */
   text-align: center;
 }
-
 .no-clip {
   background: none !important;
   -webkit-background-clip: initial !important;
@@ -159,7 +159,6 @@
   color: #00ff88 !important;
   -webkit-text-fill-color: #00ff88 !important;
 }
-
 .retro-box {
   background: #181818;
   border: 2px solid #0f0;
@@ -170,7 +169,6 @@
   color: #0f0;
   font-size: 1.3rem;
 }
-
 .video-wrapper {
   width: 400px;
   height: 225px;
@@ -180,7 +178,6 @@
   overflow: hidden;
   box-shadow: 0 0 16px #0ff5;
 }
-
 .profile-info-menu {
   background: #181818;
   border: 2px solid #0f0;
@@ -196,7 +193,6 @@
   gap: 18px;
   justify-content: center;
 }
-
 @media (max-width: 700px) {
   .retro-profile {
     flex-direction: column;
@@ -207,35 +203,33 @@
     margin-bottom: 16px;
   }
 }
-
 .profile-info-row {
   display: flex;
   gap: 16px;
   align-items: center;
 }
-
 .profile-label {
   color: #0f0;
   font-weight: bold;
   min-width: 90px;
   text-shadow: 0 0 4px #0f08;
 }
-
 .profile-value {
   color: #fff;
   text-shadow: 0 0 2px #0f08;
 }
 .profile-value-flag {
-  width: 50px;
+  color: #0f0;
+  text-shadow: 0 0 2px #0f08;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
-
 .profile-info-menu a {
   color: #0f0;
   text-decoration: underline;
   margin-right: 6px;
   font-size: 1.1rem;
 }
-
 @media (max-width: 700px) {
   .retro-profile {
     flex-direction: column;
@@ -247,7 +241,6 @@
     margin-bottom: 16px;
   }
 }
-
 .reseaux-box {
   max-width: 480px; /* augmenter la largeur max */
   width: 100%;
@@ -255,7 +248,6 @@
   padding: 1.5rem 2rem; /* un peu plus d’espace intérieur */
   box-sizing: border-box;
 }
-
 .reseaux-list {
   display: flex;
   flex-direction: column;
@@ -264,7 +256,6 @@
   max-width: 420px; /* ← élargi depuis 320px */
   width: 100%;
 }
-
 .reseaux-list a {
   display: flex;
   align-items: center;
@@ -285,13 +276,11 @@
   padding: 1rem 1.5rem;
   font-size: 1.1rem;
 }
-
 .reseaux-list a img {
   width: 24px;
   height: 24px;
   filter: drop-shadow(0 0 2px #0ff);
 }
-
 .reseaux-list a:hover,
 .reseaux-list a:focus {
   background: #0f0;
@@ -300,9 +289,6 @@
   text-shadow: none;
   box-shadow: 0 0 10px #0ff;
 }
-
-
-
 /* Reflet DVD */
 .profile-pic-wrapper::before {
   content: "";
@@ -325,7 +311,6 @@
   pointer-events: none;
   z-index: 2;
 }
-
 /* Trou central */
 .profile-pic-wrapper::after {
   content: "";
@@ -341,7 +326,6 @@
   pointer-events: none;
   border: 2px solid rgba(0,255,0,0.7); /* Bord vert autour du trou */
 }
-
 .socials a { color: #0f0; margin-right: 10px; text-decoration: none; }
 .game-section { display: flex; align-items: center; padding: 40px; gap: 20px; max-width: 1100px; margin: 0 auto; }
 .game-section.reverse { flex-direction: row-reverse; }
@@ -352,7 +336,6 @@
 .game-info h2 { color: #0f0; margin: 0 0 10px; }
 .download-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #0f0; color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; }
 .secret-game { padding: 40px; text-align: center; }
-
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -362,14 +345,12 @@ html, body, #root {
   height: auto; /* ou min-height: 100vh si nécessaire */
   overflow-x: hidden;
 }
-
 .app-wrapper {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
 }
-
 .background-wrapper {
   position: fixed;
   top: 0;
@@ -379,7 +360,6 @@ html, body, #root {
   overflow: hidden;
   z-index: 0;
 }
-
 .background-image {
   width: 100%;
   height: 100%;
@@ -387,7 +367,6 @@ html, body, #root {
   opacity: 0.016; /* Presque invisible */
   filter: drop-shadow(0 0 0px rgb(0, 0, 0)) !important;
 }
-
 .content {
   position: relative;
   z-index: 2;
@@ -396,8 +375,6 @@ html, body, #root {
   text-shadow: 0 0 1px #fff, 0 0 6px #0ff; 
   padding-bottom: 100px; /* espace suffisant pour ne pas être caché par le footer */
 }
-
-
 .footer-controls {
   position: fixed;
   left: 0;
@@ -415,7 +392,6 @@ html, body, #root {
   border-top: none;
   box-shadow: 0 -2px 12px 0 rgba(0,255,0,0.15);
 }
-
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -424,21 +400,17 @@ html, body, #root {
   margin: 0 auto;
   width: 100%;
 }
-
 .footer-center {
   display: flex;
   gap: 2rem;
   justify-content: center;
   flex: 1;
 }
-
 .footer-right {
   display: flex;
   gap: 0.5rem;
   margin-left: auto;
 }
-
-
 .footer-right img.flag {
   width: 30px;   /* taille des drapeaux */
   height: auto;
@@ -446,13 +418,11 @@ html, body, #root {
   opacity: 0.6;
   transition: opacity 0.2s;
 }
-
 .footer-right img.flag.active {
   opacity: 1;
   border: 1px solid #fff;
   border-radius: 3px;
 }
-
 /* Ajoute ce pseudo-élément pour la ligne du haut avec fondu */
 .footer-controls::before {
   content: "";
@@ -470,7 +440,6 @@ html, body, #root {
   );
   z-index: 2;
 }
-
 .footer-controls button {
   font-size: 1.1rem;
   padding: 0.7rem 2rem;
@@ -482,7 +451,6 @@ html, body, #root {
   font-weight: bold;
   transition: background 0.2s, color 0.2s;
 }
-
 .footer-controls button.active,
 .footer-controls button:hover {
   background: #0f0;
@@ -510,24 +478,6 @@ html, body, #root {
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
-
-
-/* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Firefox */
-html {
-  scrollbar-width: none; /* Masque scrollbar sur Firefox */
-}
-
-/* Empêche tout affichage visible de la scrollbar */
-body {
-  -ms-overflow-style: none;  /* IE & Edge */
-  overflow: scroll; /* Permet le scroll, mais cache la barre */
-}
-
 /* glow crt */
 img {
   filter: drop-shadow(0 0 2px #0ff);
@@ -535,7 +485,6 @@ img {
 h1, h2, h3, h4, h5, h6, p, span, li {
   text-shadow: 0 0 1px #fff, 0 0 5px #0ff;
 }
-
 /* Boutons, liens, inputs, select, textarea */
 button, input, select, textarea {
   position: relative;
@@ -543,18 +492,17 @@ button, input, select, textarea {
   color: white;
   background: transparent;
   border: 1px solid #0ff;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   text-shadow: 0 0 1px #fff, 0 0 5px #0ff;
   box-shadow: 0 0 1px #0ff, 0 0 8px #0ff inset;
   transition: all 0.2s ease;
 }
-
 button:hover, a:hover, input:hover, select:hover, textarea:hover {
   text-shadow: 0 0 1px #fff, 0 0 8px #0ff;
   box-shadow: 0 0 1px #0ff, 0 0 12px #0ff inset;
   border-color: #0ff;
 }
-
 button:focus, input:focus, select:focus, textarea:focus {
   outline: none;
   text-shadow: 0 0 1px #fff, 0 0 8px #0ff;
@@ -590,25 +538,19 @@ button:focus, input:focus, select:focus, textarea:focus {
   border-color: #0ff;
 }
 */
-
 /* Rotation de l'image */
-
 .rotating-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .rotating-image {
   animation: spin 16s linear infinite; /* 4s pour un tour complet, boucle infinie */
 }
-
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-
 /* Filtre CRT */
 .crt-overlay {
   pointer-events: none;
@@ -632,7 +574,6 @@ button:focus, input:focus, select:focus, textarea:focus {
     0 0 0 8px rgba(0,0,0,0.12) inset;
   border-radius: 2.5% / 1.5%;
 }
-
 /* RGB split */
 .crt-overlay::before {
   content: "";
@@ -646,7 +587,6 @@ button:focus, input:focus, select:focus, textarea:focus {
   opacity: 0.06;
   animation: rgbShift 0.5s infinite alternate;
 }
-
 /* Bruit statique */
 .crt-overlay::after {
   content: "";
@@ -660,19 +600,16 @@ button:focus, input:focus, select:focus, textarea:focus {
   opacity: 0.025;
   animation: noise 0.1s infinite;
 }
-
 /* Glow léger sur les bords (scanlines verticales) */
 .crt-overlay::before,
 .crt-overlay::after {
   mix-blend-mode: screen;
 }
-
 /* Animations */
 @keyframes flicker {
   0%,100% { opacity: 0.05; }
   /* 50% { opacity: 0.1; } */
 }
-
 @keyframes noise {
   0% { transform: translate(0,0); }
   25% { transform: translate(-1px,1px); }
@@ -680,7 +617,6 @@ button:focus, input:focus, select:focus, textarea:focus {
   75% { transform: translate(-1px,2px); }
   100% { transform: translate(0,0); }
 }
-
 @keyframes scanlineWave {
   0% { transform: scale(1.02) scaleY(1.02) translateX(0) translateY(0); }
   25% { transform: scale(1.03) scaleY(1.01) translateX(-2px) translateY(1px); }
@@ -688,20 +624,208 @@ button:focus, input:focus, select:focus, textarea:focus {
   75% { transform: scale(1.01) scaleY(1.02) translateX(-1px) translateY(2px); }
   100% { transform: scale(1.02) scaleY(1.02) translateX(0) translateY(0); }
 }
-
 @keyframes zoomPulse {
   0%,100% { transform: scale(1.02) scaleY(1.02); }
   50% { transform: scale(1.05) scaleY(1.04); }
 }
-
 @keyframes rgbShift {
   0% { transform: translateX(0); }
   50% { transform: translateX(2px); }
   100% { transform: translateX(0); }
 }
-
 @keyframes horizontalSweep {
   0% { background-position-x: 0; }
   100% { background-position-x: 1000px; }
 }
 
+</style><style type="text/css" data-vite-dev-id="C:/Users/Thitouane/Desktop/SiteVitrine/src/RGBGlitch.css">.random-glitch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center; /* garde le centrage du contenu si c'était centré */
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block; /* respecte l'alignement du texte */
+}
+
+/* texte original */
+.glitch-base {
+  position: relative;
+  display: inline-block;
+}
+
+/* duplicatas glitch RGB */
+.glitch-layer {
+  position: absolute; /* superposé par-dessus le texte original */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: inline-block;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.glitch-red {
+  color: red;
+  opacity: 0.7;
+}
+
+.glitch-cyan {
+  color: cyan;
+  opacity: 0.7;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/Thitouane/Desktop/SiteVitrine/src/TvStartup.css">.tv-startup-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.3s 1.2s forwards;
+  pointer-events: all;
+  /* Ajoute un léger flou sur tout l'overlay */
+  backdrop-filter: blur(6px);
+}
+
+.tv-flash {
+  position: relative;
+  width: 10vw;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ajoute un flou général */
+  filter: blur(2px);
+
+}
+.tv-flash-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2vw;
+  height: 2vw;
+  background: radial-gradient(circle, white 0%, #fff 60%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: flash-center 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.tv-flash-horizontal, .tv-flash-vertical {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: white;
+  opacity: 0.7;
+  border-radius: 1vw;
+  transform: translate(-50%, -50%);
+}
+
+.tv-flash-horizontal {
+  width: 2vw;
+  height: 0.3vw;
+  animation: flash-horizontal 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.tv-flash-vertical {
+  width: 0.3vw;
+  height: 2vw;
+  animation: flash-vertical 1.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes flash-center {
+  0% {
+    width: 2vw;
+    height: 2vw;
+    opacity: 1;
+    filter: blur(4px);
+  }
+  60% {
+    width: 2vw;
+    height: 2vw;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+    filter: blur(40px);
+  }
+}
+
+@keyframes flash-horizontal {
+  0% {
+    width: 2vw;
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  40% {
+    width: 80vw;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    width: 100vw;
+    opacity: 0;
+    filter: blur(30px);
+  }
+}
+
+@keyframes flash-vertical {
+  0% {
+    height: 2vw;
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  40% {
+    height: 80vh;
+    opacity: 1;
+    filter: blur(8px);
+  }
+  100% {
+    height: 100vh;
+    opacity: 0;
+    filter: blur(30px);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}</style><style type="text/css" data-vite-dev-id="C:/Users/Thitouane/Desktop/SiteVitrine/src/TvNoiseTransition.css">.tv-noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeOutNoise 0.2s 0.5s forwards;
+}
+
+.tv-noise {
+  width: 100vw;
+  height: 100vh;
+  background: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-size: cover;
+  opacity: 0.35; /* réduit l'intensité */
+  filter: contrast(180%) brightness(0.7); /* moins lumineux */
+}
+
+@keyframes fadeOutNoise {
+  to {
+    opacity: 0;
+  }
+}</style></head>
+  <body>
+    <div id="root"><div class="site-container site-wrapper"><div class="background-wrapper"><img alt="i" class="background-image" src="./Thitouzg_files/i.png"></div><div class="content scrollable-content"><div class="random-glitch-wrapper"><div class="glitch-wrapper"><span class="glitch-base"><section class="about retro-profile"><h2 class="retro-title character-select-title no-clip">PERSONNAGE : THITOUZG</h2><div class="profile-pic-area"><span class="profile-pic-wrapper rotating-image"><img alt="Moi" class="profile-pic" src="./Thitouzg_files/profile.png"></span></div><div class="profile-info-menu"><div class="profile-info-row"><span class="profile-label">Nom :</span><span class="profile-value">Thitouane</span></div><div class="profile-info-row"><span class="profile-label">Année de naissance :</span><span class="profile-value">1999</span></div><div class="profile-info-row"><span class="profile-label">profile-nationality :</span><span class="profile-value"><img alt="Français" src="./Thitouzg_files/fr.png" class="profile-value" style="
+    width: 250/2px;
+"></span></div><div class="profile-info-row"><span class="profile-label">Activité :</span><span class="profile-value">Développeur</span></div><div class="profile-info-row"><span class="profile-label">Passion :</span><span class="profile-value">Développement de jeux video</span></div></div></section></span></div><div class="glitch-wrapper"><span class="glitch-base"></span></div><div class="glitch-wrapper"><span class="glitch-base"></span></div></div></div><footer class="footer-controls"><div class="footer-content"><div class="footer-center"><button class="active">Profil</button><button class="">Jeux</button><button class="">Reseaux</button></div><div class="footer-right"><img alt="Français" class="flag active" src="./Thitouzg_files/fr.png"><img alt="English" class="flag " src="./Thitouzg_files/gb.png"></div></div></footer><div class="crt-overlay"></div></div></div>
+    <script type="module" src="./Thitouzg_files/main.jsx"></script>
+  </body></html>

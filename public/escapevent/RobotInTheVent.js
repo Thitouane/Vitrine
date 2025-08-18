@@ -1,45 +1,66 @@
-// public/escapevent/RobotInTheVent.js
-
 function startRobotInTheVent(canvas) {
   const ctx = canvas.getContext("2d");
 
-  // Dimensions
+  const playerImg = new Image();
+  playerImg.src = "escapevent/wobot.png";
+  const obstacleImg1 = new Image();
+  obstacleImg1.src = "escapevent/evil_wobot.png";
+  const obstacleImg2 = new Image();
+  obstacleImg2.src = "escapevent/evil_long_wobot.png";
+  const flyingEnemyImg = new Image();
+  flyingEnemyImg.src = "escapevent/evil_flying_wobot.png";
+
   canvas.width = 800;
   canvas.height = 400;
 
-  // Joueur
+  let scrollSpeed = 6; // vitesse de base
+
   const player = {
     x: 50,
     y: 300,
-    width: 32,
-    height: 32,
-    color: "#FFD700",
+    width: 64,
+    height: 64,
     dy: 0,
     gravity: 0.6,
-    jumpPower: -12,
+    jumpPower: -12.8,
     grounded: false,
   };
 
-  // Obstacles
   let obstacles = [];
   let obstacleTimer = 0;
-  const obstacleInterval = 90; // frames
-
-  // Sol
+  const obstacleInterval = 90;
   const groundHeight = 50;
 
-  // Score
   let score = 0;
   let gameOver = false;
 
   function spawnObstacle() {
-    obstacles.push({
-      x: canvas.width,
-      y: canvas.height - groundHeight - 30,
-      width: 30,
-      height: 30,
-      color: "#FF4444",
-    });
+    const type = Math.random();
+
+    if (type < 0.3) {
+      // Volant
+      obstacles.push({
+        type: "flying",
+        x: canvas.width,
+        width: 64,
+        height: 64,
+        y: canvas.height - groundHeight - 150, // haut
+        image: flyingEnemyImg,
+      });
+    } else {
+      // Normal au sol
+      const height = Math.random() < 0.5 ? 64 : 32;
+      const y = canvas.height - groundHeight - height;
+
+      obstacles.push({
+        type: height === 64 ? "tall" : "short",
+        x: canvas.width,
+        width: 64,
+        height: 64,
+        y: y,
+        image: height === 64 ? obstacleImg2 : obstacleImg1,
+      });
+    }
   }
 
   function resetGame() {
@@ -74,10 +95,9 @@ function startRobotInTheVent(canvas) {
     }
 
     // Dessiner joueur
-    ctx.fillStyle = player.color;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
 
-    // Obstacles
+    // Obstacle logic
     obstacleTimer++;
     if (obstacleTimer > obstacleInterval) {
       spawnObstacle();
@@ -86,28 +106,61 @@ function startRobotInTheVent(canvas) {
 
     for (let i = obstacles.length - 1; i >= 0; i--) {
       const obs = obstacles[i];
-      obs.x -= 6;
+      obs.x -= scrollSpeed;
 
-      // Collision
+      // Définir les hitboxes ajustées
+      const playerHitbox = {
+        x: player.x + 10,
+        y: player.y + 10,
+        width: player.width - 20,
+        height: player.height - 20
+      };
+
+      const obsHitbox = {
+        x: obs.x + 8,
+        y: obs.y + 8,
+        width: obs.width - 16,
+        height: obs.height - 16
+      };
+
+      // Debug : Dessiner les hitboxes (à enlever après tests)
+      // ctx.strokeStyle = "lime";
+      // ctx.strokeRect(playerHitbox.x, playerHitbox.y, playerHitbox.width, playerHitbox.height);
+
+      // ctx.strokeStyle = "red";
+      // ctx.strokeRect(obsHitbox.x, obsHitbox.y, obsHitbox.width, obsHitbox.height);
+
+      // Collision avec hitboxes réduites
       if (
-        player.x < obs.x + obs.width &&
-        player.x + player.width > obs.x &&
-        player.y < obs.y + obs.height &&
-        player.y + player.height > obs.y
+        playerHitbox.x < obsHitbox.x + obsHitbox.width &&
+        playerHitbox.x + playerHitbox.width > obsHitbox.x &&
+        playerHitbox.y < obsHitbox.y + obsHitbox.height &&
+        playerHitbox.y + playerHitbox.height > obsHitbox.y
       ) {
         gameOver = true;
         ctx.fillStyle = "#fff";
-        ctx.font = "30px Arial";
-        ctx.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
-        ctx.font = "20px Arial";
-        ctx.fillText("Press R to Retry", canvas.width / 2 - 70, canvas.height / 2 + 40);
+        ctx.font = "24px 'Press Start 2P'";
+        ctx.fillText("Game Over", canvas.width / 2 - 120, canvas.height / 2);
+
+        ctx.font = "16px 'Press Start 2P'";
+        ctx.fillText("Press R to Retry", canvas.width / 2 - 136, canvas.height / 2 + 40);
       }
 
-      // Dessiner obstacle
-      ctx.fillStyle = obs.color;
-      ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+      // Utilise les dimensions de l’image sans déformation
+      const spriteHeight  = obs.type === "tall" ? 128 : 64;
+      const spriteWidth = 64;
 
-      // Supprimer obstacles hors écran
+      // Repositionne pour que la base touche le sol
+      const drawY = obs.type === "flying" ? canvas.height - groundHeight - (spriteHeight * 2) : canvas.height - groundHeight - spriteHeight;
+
+      ctx.drawImage(obs.image, obs.x, obs.y, obs.width, obs.height);
+
+      // Met à jour aussi les données d'obstacle pour collision (si nécessaire)
+      obs.y = drawY;
+      obs.width = spriteWidth;
+      obs.height = spriteHeight;
+
+      // Supprimer obstacle
       if (obs.x + obs.width < 0) {
         obstacles.splice(i, 1);
       }
@@ -116,8 +169,10 @@ function startRobotInTheVent(canvas) {
     // Score
     score++;
     ctx.fillStyle = "#fff";
-    ctx.font = "20px Arial";
+    ctx.font = "16px 'Press Start 2P'";
     ctx.fillText("Score: " + score, 10, 30);
+
+    scrollSpeed += 0.001; // ajuste la valeur pour contrôler l'accélération
 
     requestAnimationFrame(loop);
   }
