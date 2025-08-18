@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./TVStartup.css";
+import "./TvStartup.css";
 
 export default function TVStartup({ onEnd }) {
   const [visible, setVisible] = useState(true);
