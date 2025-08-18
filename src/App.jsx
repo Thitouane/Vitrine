@@ -162,7 +162,7 @@ export default function App() {
             <section className="reseaux-section">
               <div className="reseaux-box">
                 <div className="reseaux-list">
-                  <a href="https://www.linkedin.com/in/thitouane-h-4a2a32220/" target="_blank" rel="noreferrer">
+                  <a href="https://www.linkedin.com/in/thitouane-helle-113a83200/" target="_blank" rel="noreferrer">
                     <img src="/images/linkedin.png" alt="LinkedIn" />
                     LinkedIn
                   </a>
