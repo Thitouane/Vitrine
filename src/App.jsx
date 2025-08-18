@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import GamePage from "./GamePage";
 import profilePic from "./assets/profile.png";
@@ -9,8 +9,8 @@ import game2img1 from "./assets/game2_1.png";
 import game2img2 from "./assets/game2_2.png";
 import RGBGlitch from "./RGBGlitch";
 import imageI from "./assets/i.png"
-import TVStartup from "./TVStartup";
-import TVNoiseTransition from "./TVNoiseTransition";
+import TVStartup from "./TvStartup";
+import TVNoiseTransition from "./TvNoiseTransition";
 import './i18n';
 import { useTranslation } from 'react-i18next'; // ✅ Import nécessaire
 
