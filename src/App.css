@@ -172,7 +172,7 @@
 
 .video-wrapper {
   width: 400px;
-  height: auto;
+  height: 225px;
   flex-shrink: 0;
   border: 1px solid #333;
   border-radius: 8px;
@@ -921,9 +921,13 @@ button:focus, input:focus, select:focus, textarea:focus {
     margin-top: 1rem;
   }
 
+  .game-section .video-wrapper {
+    order: 1; /* image en dessous */
+    margin-top: 1rem;
+  }
+
   .video-wrapper {
     width: 100%;
-     width: 100%;
     aspect-ratio: 16 / 9; /* garde les proportions */
     max-width: 360px;
   }
