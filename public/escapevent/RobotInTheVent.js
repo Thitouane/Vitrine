@@ -34,6 +34,9 @@ function startRobotInTheVent(canvas) {
   let score = 0;
   let gameOver = false;
 
+  // Détecter mobile
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
   function spawnObstacle() {
     const type = Math.random();
 
@@ -143,7 +146,10 @@ function startRobotInTheVent(canvas) {
         ctx.fillText("Game Over", canvas.width / 2 - 120, canvas.height / 2);
 
         ctx.font = "16px 'Press Start 2P'";
-        ctx.fillText("Press R to Retry", canvas.width / 2 - 136, canvas.height / 2 + 40);
+        
+        const retryText = isMobile ? "Press to Retry" : "Press R to Retry";
+        const retryPos = isMobile ? canvas.width / 2 - 124 : canvas.width / 2 - 136;
+        ctx.fillText(retryText, retryPos, canvas.height / 2 + 40);
       }
 
       // Utilise les dimensions de l’image sans déformation
@@ -178,12 +184,30 @@ function startRobotInTheVent(canvas) {
   }
 
   // Contrôles
+  // Contrôles clavier (PC)
   window.addEventListener("keydown", (e) => {
     if (e.code === "Space" && player.grounded && !gameOver) {
       player.dy = player.jumpPower;
     }
     if (e.code === "KeyR" && gameOver) {
       resetGame();
+    }
+  });
+
+  // Détection mobile : si on touche le canvas, on saute
+  canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // empêche le scroll de la page
+    if (player.grounded && !gameOver) {
+      player.dy = player.jumpPower;
+    }
+  });
+
+  canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault(); 
+    if (!gameOver && player.grounded) {
+      player.dy = player.jumpPower;
+    } else if (gameOver) {
+      resetGame(); // si le jeu est terminé, un appui redémarre le jeu
     }
   });
 

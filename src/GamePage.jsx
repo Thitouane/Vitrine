@@ -3,6 +3,13 @@ import React, { useRef, useEffect, useState } from "react";
 export default function GamePage() {
   const canvasRef = useRef(null);
   const [gameLoaded, setGameLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Détection mobile simple
+    const checkMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    setIsMobile(checkMobile);
+  }, []);
 
   useEffect(() => {
     if (gameLoaded) {
@@ -93,7 +100,9 @@ export default function GamePage() {
                 maxWidth: "100%",
               }}
             />
-            <p style={{ color: "#aaa" }}>Press SPACE to jump</p>
+            <p style={{ color: "#aaa" }}>
+              {isMobile ? "Press to jump" : "Press SPACE to jump"}
+            </p>
           </div>
         </div>
       )}
