@@ -8,9 +8,11 @@
   "profile-hobby": "Hobby",
   "profile-hobby-answer": "Game Maker, Book, ComicBook",
 
-  "game-title1": "Escape from the Lab",
+  "game-title1": "Escape from the Lab", 
+  "game-status1": "Developpment : paused",
   "game-description1": "2D roguelite platformer where you play as a small robot trying to escape his factory in a dystopian world.",
   "game-title2": "Escape from the Office (Work In Progress)",
+  "game-status2": "Developpment : in progress ...",
   "game-tdescription2": "Jeu 2",
 
   "footer-profile": "Profile",

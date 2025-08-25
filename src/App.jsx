@@ -6,7 +6,6 @@ import game1img1 from "./assets/game1_1.png";
 import game1img2 from "./assets/game1_2.png";
 import game1img3 from "./assets/game1_3.png";
 import game2img1 from "./assets/game2_1.png";
-import game2img2 from "./assets/game2_2.png";
 import RGBGlitch from "./RGBGlitch";
 import imageI from "./assets/i.png"
 import TVStartup from "./TvStartup";
@@ -136,6 +135,9 @@ export default function App() {
                 </div>
                 <div className="retro-box">
                   <h2>{t('game-title1')}</h2>
+                  <span className="profile-label">
+                    {t('game-statut1')}
+                  </span>
                   <p>
                     {t('game-description1')}
                   </p>
@@ -143,11 +145,14 @@ export default function App() {
                 </div>
               </section>
               <section className="game-section reverse">
-                <Carousel images={[game2img1, game2img2]} />
+                <Carousel images={[game2img1]} />
                 <div className="game-info retro-box">
-                  <h2>{t('game-title1')}</h2>
+                  <h2>{t('game-title2')}</h2>
+                  <span className="profile-label">
+                    {t('game-statut2')}
+                  </span>
                   <p>
-                    {t('game-description1')}
+                    {t('game-description2')}
                   </p>
                 </div>
               </section>
