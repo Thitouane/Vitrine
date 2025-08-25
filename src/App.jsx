@@ -136,7 +136,7 @@ export default function App() {
                 <div className="retro-box">
                   <h2>{t('game-title1')}</h2>
                   <span className="profile-label">
-                    {t('game-statut1')}
+                    {t('game-status1')}
                   </span>
                   <p>
                     {t('game-description1')}
@@ -145,11 +145,11 @@ export default function App() {
                 </div>
               </section>
               <section className="game-section reverse">
-                <Carousel images={[game2img1]} />
+                <img src={game2img1} alt="Game2-preview"/>
                 <div className="game-info retro-box">
                   <h2>{t('game-title2')}</h2>
                   <span className="profile-label">
-                    {t('game-statut2')}
+                    {t('game-status2')}
                   </span>
                   <p>
                     {t('game-description2')}
