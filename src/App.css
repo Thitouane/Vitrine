@@ -228,6 +228,9 @@
 .profile-value-flag {
   width: 50px;
 }
+.game-preview {
+  width: 400px;
+}
 
 .profile-info-menu a {
   color: #0f0;

@@ -145,7 +145,7 @@ export default function App() {
                 </div>
               </section>
               <section className="game-section reverse">
-                <img src={game2img1} alt="Game2-preview"/>
+                <img src={game2img1} alt="Game2-preview" className="game-preview"/>
                 <div className="game-info retro-box">
                   <h2>{t('game-title2')}</h2>
                   <span className="profile-label">
