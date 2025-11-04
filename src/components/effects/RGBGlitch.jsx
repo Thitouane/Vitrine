@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./RGBGlitch.css";
+import "../../styles/effects/RGBGlitch.css";
 
 const RGBGlitch = ({ children }) => {
   const [glitchIndex, setGlitchIndex] = useState(null);

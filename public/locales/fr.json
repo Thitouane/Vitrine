@@ -1,5 +1,7 @@
 {
-  "profile-title": "PERSONNAGE",
+  "profile-right-arrow": ">",
+  "profile-left-arrow": "<",
+  "profile-title": "SELECTION DU PERSONNAGE",
   "profile-name": "Nom",
   "profile-birthdate": "Année de naissance",
   "profile-nationality": "Nationalité",

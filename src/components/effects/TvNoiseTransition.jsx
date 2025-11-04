@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./TvNoiseTransition.css";
+import "../../styles/effects/TvNoiseTransition.css";
 
 export default function TVNoiseTransition({ onEnd }) {
   useEffect(() => {
