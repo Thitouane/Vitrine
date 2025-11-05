@@ -1,54 +1,46 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/effects/RGBGlitch.css";
 
-const RGBGlitch = ({ children }) => {
-  const [glitchIndex, setGlitchIndex] = useState(null);
+export default function RGBGlitch({
+  children,
+  className = "",
+  intervalMin = 3000,
+  intervalMax = 6000,
+}) {
+  const [isGlitching, setIsGlitching] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const count = React.Children.count(children);
-      const randomIndex = Math.floor(Math.random() * count);
-      setGlitchIndex(randomIndex);
+    let timeout;
 
-      setTimeout(() => setGlitchIndex(null), 200 + Math.random() * 200);
-    }, 3000 + Math.random() * 4000);
+    const triggerGlitch = () => {
+      setIsGlitching(true);
 
-    return () => clearInterval(interval);
-  }, [children]);
+      // durée du glitch courte
+      setTimeout(() => setIsGlitching(false), 120 + Math.random() * 180);
+
+      // prochain glitch aléatoire
+      timeout = setTimeout(
+        triggerGlitch,
+        intervalMin + Math.random() * (intervalMax - intervalMin)
+      );
+    };
+
+    triggerGlitch();
+    return () => clearTimeout(timeout);
+  }, [intervalMin, intervalMax]);
+
+  // On merge les classes sans écraser
+  const combinedClass = `rgb-glitch ${className} ${isGlitching ? "active" : ""}`.trim();
 
   return (
-    <div className="random-glitch-wrapper">
-      {React.Children.map(children, (child, index) => (
-        <div className="glitch-wrapper">
-          <span className="glitch-base">{child}</span>
-          {index === glitchIndex && (
-            <>
-              <span
-                className="glitch-layer glitch-red"
-                style={{
-                  transform: `translate(${Math.random() * 6 - 3}px, ${
-                    Math.random() * 4 - 2
-                  }px)`,
-                }}
-              >
-                {child}
-              </span>
-              <span
-                className="glitch-layer glitch-cyan"
-                style={{
-                  transform: `translate(${Math.random() * 6 - 3}px, ${
-                    Math.random() * 4 - 2
-                  }px)`,
-                }}
-              >
-                {child}
-              </span>
-            </>
-          )}
-        </div>
-      ))}
+    <div className={combinedClass}>
+      <div className="glitch-content">{children}</div>
+      {isGlitching && (
+        <>
+          <div className="glitch-dup red">{children}</div>
+          <div className="glitch-dup cyan">{children}</div>
+        </>
+      )}
     </div>
   );
-};
-
-export default RGBGlitch;
+}

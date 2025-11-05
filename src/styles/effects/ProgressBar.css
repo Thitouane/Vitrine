@@ -1,0 +1,105 @@
+/* Container */
+.pixel-progress-wrap {
+  width: 100%;
+  max-width: var(--ppb-maxwidth, 420px);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  --ppb-height: 36px;
+  --ppb-gap: 6px;
+  --ppb-color: #0f0;
+  --ppb-bg: #0f0;
+  --ppb-animated: 1;
+  padding: 0;
+}
+
+/* Progress bar line (the row of pixel blocks) */
+.pixel-progress {
+  display: flex;
+  gap: var(--ppb-gap);
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Each block / pixel */
+.pixel-segment {
+  flex: 1 1 0;                 /* equally distributed columns */
+  height: var(--ppb-height);
+  background: var(--ppb-bg);
+  border: 2px solid rgba(0,0,0,0.6);
+  box-shadow:
+    0 0 0 2px rgba(0,0,0,0.25) inset,
+    0 0 8px rgba(0,0,0,0.6);  /* subtle inner dark */
+  transition: background 160ms steps(1, end), box-shadow 160ms steps(1, end), transform 120ms steps(1, end);
+  will-change: background, box-shadow, transform;
+  display: inline-block;
+  border-radius: 0;            /* pixel look: no rounding */
+  position: relative;
+  overflow: visible;
+}
+
+/* Filled pixel look */
+.pixel-segment.filled {
+  background: #0f0;
+  box-shadow:
+    0 0 4px rgba(0, 255, 0, 0.555),
+    0 0 12px rgba(0, 255, 0, 0.644),
+    0 0 0 2px rgba(0,0,0,0.5) inset;
+}
+
+/* optional tiny highlight line to mimic CRT scan */
+.pixel-segment.filled::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 20%;
+  height: 8%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+
+/* label on the right (value) */
+.pixel-progress-label {
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-shadow: 0 0 6px #0f0;
+}
+
+/* Make transitions 'saccadées' (steppy) when animated */
+.pixel-progress-wrap[style*="--ppb-animated: 1"] .pixel-segment {
+  transition-timing-function: steps(1, end);
+}
+
+/* Accessibility focus (keyboard) */
+.pixel-progress:focus {
+  outline: 3px solid #0f0;
+  outline-offset: 4px;
+}
+
+/* RESPONSIVE: reduce gap & height on small screens */
+@media (max-width: 480px) {
+  .pixel-progress-wrap {
+    --ppb-height: 26px;
+    --ppb-gap: 4px;
+  }
+  .pixel-progress-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* For very few segments, keep blocks visible by forcing min-width */
+.pixel-progress[data-segments=""] .pixel-segment {
+  min-width: 16px;
+}
+
+/* make bars crisp on zoom / pixel feel - use transform to avoid blurry borders */
+.pixel-segment,
+.pixel-segment.filled {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

@@ -9,6 +9,8 @@ import game2img1 from "../../assets/game2_1.png";
 
 import GamePage from "../GamePage";
 
+import "../../styles/pages/Game.css";
+
 export default function Game() {
   const { t, i18n } = useTranslation(); // ✅ Hook i18n
   const [currentLang, setCurrentLang] = useState(i18n.language);

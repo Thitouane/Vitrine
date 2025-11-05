@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../styles/pages/Socials.css";
+
 export default function Socials() {
     return (
     <section className="reseaux-section">

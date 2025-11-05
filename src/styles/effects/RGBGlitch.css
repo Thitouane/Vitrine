@@ -1,38 +1,60 @@
-.random-glitch-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center; /* garde le centrage du contenu si c'était centré */
-}
-
-.glitch-wrapper {
+.rgb-glitch {
   position: relative;
-  display: inline-block; /* respecte l'alignement du texte */
+  display: inline-block; /* respecte le flux */
 }
 
-/* texte original */
-.glitch-base {
+.glitch-content {
   position: relative;
-  display: inline-block;
+  z-index: 2;
 }
 
-/* duplicatas glitch RGB */
-.glitch-layer {
-  position: absolute; /* superposé par-dessus le texte original */
+/* Duplication RGB */
+.glitch-dup {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  display: inline-block;
   pointer-events: none;
-  font-weight: bold;
+  opacity: 0.7;
+  z-index: 1;
+  mix-blend-mode: screen;
 }
 
-.glitch-red {
-  color: red;
-  opacity: 0.7;
+.glitch-dup.red {
+  color: #ff003c;
+  animation: glitchRed 0.25s steps(2, end) infinite;
 }
 
-.glitch-cyan {
-  color: cyan;
-  opacity: 0.7;
+.glitch-dup.cyan {
+  color: #00fff9;
+  animation: glitchCyan 0.25s steps(2, end) infinite;
+}
+
+/* Tremblement du conteneur principal */
+.rgb-glitch.active .glitch-content {
+  animation: glitchShake 0.25s steps(2, end) infinite;
+}
+
+/* Animations */
+@keyframes glitchShake {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(1px, -1px); }
+  40% { transform: translate(-2px, 1px); }
+  60% { transform: translate(2px, 1px); }
+  80% { transform: translate(-1px, -2px); }
+}
+
+@keyframes glitchRed {
+  0% { transform: translate(-2px, 1px); }
+  25% { transform: translate(-3px, -1px); }
+  50% { transform: translate(-1px, 2px); }
+  75% { transform: translate(-4px, 0); }
+  100% { transform: translate(-2px, 1px); }
+}
+
+@keyframes glitchCyan {
+  0% { transform: translate(2px, -1px); }
+  25% { transform: translate(3px, 2px); }
+  50% { transform: translate(1px, -3px); }
+  75% { transform: translate(4px, 1px); }
+  100% { transform: translate(2px, -1px); }
 }

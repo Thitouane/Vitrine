@@ -1,0 +1,206 @@
+/* === SECTION PRINCIPALE === */
+.about.retro-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 4vh 2vw;
+  min-height: 100vh;
+  gap: 3rem;
+  position: relative;
+}
+
+/* === TITRE === */
+.retro-title  {
+  font-family: 'Press Start 2P', monospace;
+  color: #0f0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  text-shadow: 2px 2px 0 #003322, 0 0 8px rgba(0, 255, 136, 0.6);
+  margin: 0;
+  margin-bottom: 4%;
+  z-index: 3;
+}
+
+/* === PHOTO DE PROFIL === */
+.profile-pic-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  width: clamp(120px, 18vw, 220px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid #0f0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #111 30%, #0a0 120%);
+  animation: spin 18s linear infinite;
+  box-shadow: 0 0 25px #00ff9960, inset 0 0 8px #003322;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Petit effet “CD holographique” */
+.profile-pic-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0ff2 0deg 60deg,
+    #f0f3 90deg 160deg,
+    #ff03 200deg 260deg,
+    #0f03 300deg 360deg
+  );
+  mix-blend-mode: lighten;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* === CONTENU === */
+.profile-content-area {
+  display: flex;
+  justify-content: space-between; /* ✅ espace égal entre les 3 zones */
+  align-items: center;            /* ✅ centré verticalement */
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.profile-content-area > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Flèches */
+.arrow-left,
+.arrow-right {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: rgb(54, 54, 54);
+  text-shadow: 0 0 6px rgb(54, 54, 54);
+  user-select: none;
+  transition: transform 0.2s ease;
+  justify-content: center; 
+}
+
+.arrow-left {
+  transform: translateX(-200px);
+}
+
+.arrow-right {
+  transform: translateX(200px);
+}
+
+/* Bloc infos */
+.profile-info-menu {
+  background: #000;
+  border: 2px solid #0f0;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  color: #0f0;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 0 0 12px #00ff9955, inset 0 0 8px #00ff9922;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start; /* ✅ contenu aligné à gauche */
+}
+/* === PROFILE INFO ROW FIX === */
+.profile-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ✅ Corrige le wrapper ajouté par RGBGlitch */
+.profile-info-row > .glitch-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✅ Supprime les marges internes et pousse légèrement vers les bords */
+.profile-info-menu {
+  position: relative;
+}
+
+.profile-label,
+.profile-value {
+  display: inline-flex; /* 🔥 empêche le retour à la ligne automatique */
+  white-space: nowrap;  /* 🔥 garde tout sur une seule ligne */
+}
+
+.profile-label {
+  text-align: left;
+  margin-left: -1rem; /* pousse vers le bord gauche */
+  padding-right: 4rem;
+  flex-wrap: nowrap !important;
+}
+
+.profile-value {
+  color: #fff;
+  text-align: right;
+  margin-right: -1rem; /* pousse vers le bord droit */
+}
+
+/* ✅ Optionnel : si tu veux que les barres de stats soient parfaitement alignées aussi */
+.profile-info-row .progress-bar {
+  flex-grow: 1;
+  margin: 0 0.5rem;
+}
+
+.profile-value-flag {
+  width: 32px;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 0 6px #00ff99;
+}
+
+/* === ANIMATIONS === */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .profile-content-area {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-info-menu {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    order: -1; /* flèches au-dessus */
+    width: 100%;
+    flex: none;
+    visibility: hidden;
+  }
+}

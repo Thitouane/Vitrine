@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "../utils/i18n"; // ✅ Initialisation i18n
 import { useTranslation } from 'react-i18next'; // ✅ Import nécessaire
 
+import "../styles/Footer.css";
+
 export default function Footer({ page, handlePageChange }) {
     const { t, i18n } = useTranslation(); // ✅ Hook i18n
     const [currentLang, setCurrentLang] = useState(i18n.language);

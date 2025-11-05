@@ -3,7 +3,6 @@ import "./App.css";
 
 import imageI from "./assets/i.png"
 
-import RGBGlitch from "./components/effects/RGBGlitch";
 import TVStartup from "./components/effects/TvStartup";
 import TVNoiseTransition from "./components/effects/TvNoiseTransition";
 
@@ -40,11 +39,11 @@ export default function App() {
       {showNoise && <TVNoiseTransition onEnd={() => setShowNoise(false)} />}
       
       <div className="background-wrapper">
-        <img src={imageI} alt="i" className="background-image"/>
+        {/*<img src={imageI} alt="i" className="background-image"/>*/}
+        <div className="moving-background"></div>
       </div>
 
       <div className="content scrollable-content">
-        <RGBGlitch>
           {page === "profile" && (
             <Profile />
           )}
@@ -56,7 +55,6 @@ export default function App() {
           {page === "reseaux" && (
             <Socials />
           )}
-        </RGBGlitch>
       </div>
 
       <Footer page={page} handlePageChange={handlePageChange} />

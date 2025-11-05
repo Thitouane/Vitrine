@@ -1,0 +1,175 @@
+
+.game-section { display:   flex; align-items: center;   padding: 40px; gap: 20px; max-width: 1100px; margin: 0 auto; }
+.game-section.reverse { flex-direction: row-reverse; }
+
+.retro-box {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+}
+.retro-box {
+  background: #181818;
+  border: 2px solid #0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 24px #0f08;
+  padding: 32px 40px;
+  font-family: 'VT323', 'Fira Mono', 'Consolas', monospace;
+  color: #0f0;
+  font-size: 1.3rem;
+}
+
+
+.video-wrapper {
+  width: 400px;
+  height: 225px;
+  flex-shrink: 0;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 16px #0ff5;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.game-preview {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.carousel { overflow: hidden; width: 400px; border:1px solid #333; border-radius:8px; }
+.carousel-track { display: flex; animation: scroll 6s infinite alternate ease-in-out; }
+.carousel-track img {   width: 400px;   height: auto; display:block; }
+.game-info h2 { color: #0f0; margin: 0 0 10px; }
+
+.download-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #0f0; color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; }
+.secret-game { padding: 40px; text-align: center; }
+
+/* ✅ Amélioration RESPONSIVE Profile et Jeux */
+@media (max-width: 768px) {
+  /* --- JEUX --- */
+  .game-section {
+    flex-direction: column !important; /* ✅ image/vidéo au-dessus, texte dessous */
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .video-wrapper,
+  .game-preview {
+    width: 100%;
+    max-width: 360px;   /* ✅ adapté à iPhone 12 */
+    height: auto;
+  }
+
+  .retro-box,
+  .game-info {
+    width: 100%;
+    max-width: 360px;
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* --- GAMES --- */
+  .game-section,
+  .game-section.reverse {
+    flex-direction: column !important; /* images sous le texte */
+    text-align: center;
+    align-items: center;
+  }
+
+  .game-section.reverse .retro-box,
+  .game-section.reverse .game-info {
+    order: 0; /* texte en premier */
+  }
+
+  .game-section.reverse img,
+  .game-section.reverse .game-preview {
+    order: 1; /* image en dessous */
+    margin-top: 1rem;
+  }
+
+  .game-section .video-wrapper {
+    order: 1; /* image en dessous */
+    margin-top: 1rem;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* garde les proportions */
+    max-width: 360px;
+  }
+
+  .game-section {
+    flex-wrap: wrap;        /* permet le retour à la ligne */
+    justify-content: center;
+    padding: 20px;
+  }
+  .game-section.reverse { flex-direction: row-reverse; }
+  .carousel {
+    width: 100%;
+    max-width: 400px;
+  }
+  .carousel-track { display: flex; animation: scroll 6s infinite alternate ease-in-out; }
+  .carousel-track img {
+    width: 100%;
+    height: auto;
+  }
+
+  .retro-box,
+  .game-info {
+    width: 100%;
+    max-width: 360px;
+    font-size: 0.95rem;
+  }
+
+  /* --- JEUX : centrer les images --- */
+  .game-section,
+  .game-section.reverse {
+    flex-direction: column !important; /* déjà appliqué */
+    text-align: center;
+    align-items: center; /* centre horizontalement le contenu */
+  }
+
+  .game-section img,
+  .game-section .game-preview,
+  .game-section .video-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* assure que l’image se comporte comme un bloc centré */
+  }
+
+  .game-section {
+    padding-left: 0px !important;
+  }
+
+
+  /* --- JEUX : centrer les images --- */
+  .game-section,
+  .game-section.reverse {
+    flex-direction: column !important;
+    align-items: center; /* centre horizontalement les enfants */
+    text-align: center;
+    padding-left: 0 !important;  /* neutralise le padding du parent si nécessaire */
+    padding-right: 0 !important;
+  }
+
+  .game-section img,
+  .game-section .game-preview,
+  .game-section .video-wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;  /* pour ne pas dépasser la largeur du parent */
+  }
+
+  .retro-box,
+  .game-info {
+    width: 90%;       /* pour que le texte ne touche pas les bords */
+    max-width: 360px;
+  }
+}
