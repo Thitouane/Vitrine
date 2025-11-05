@@ -1,13 +1,78 @@
-.game-container { background-color: transparent; color: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-.glitch-btn { 
-    background: #43AC59; 
-    color: #000; 
-    padding: 10px 20px; 
-    border: none; 
-    font-weight: bold; 
-    cursor: pointer; 
-    border-radius: 5px;
-    font-size: 18px;}
-.glitch-btn:hover { background: #43AC59; }
-.crt-boot { width: 960px; height: 540px; background: radial-gradient(circle, #fff 0%, #000 80%); animation: crtOn 2s forwards; }
-@keyframes crtOn { 0% { transform: scaleY(0.02); opacity: 0.8; } 30% { transform: scaleY(1.2); opacity: 1; } 100% { transform: scaleY(1); opacity: 1; } }
+.secret-game {
+    text-align: center;
+}
+
+.pop-up-canvas { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.game-container {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: center;
+    position: relative;
+    animation: crtOn 0.5s ease-out;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 8px;
+    padding-bottom: 2px;
+}
+
+.game-canvas {
+    background: #222;
+    image-rendering: pixelated;
+    border: 2px solid #444;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.jump-text {
+    color: #aaa;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.tldr-button {
+    padding: 1rem 2rem;
+    background: #0f0; 
+    border: none;
+    border-radius: 1rem;
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.tldr-button:hover {
+  background: #00ff99;
+  box-shadow: 0 0 12px #0f0a;
+}
+
+@keyframes crtOn { 
+    0% { transform: scaleY(0.02); opacity: 0.8; } 
+    30% { transform: scaleY(1.2); opacity: 1; } 
+    100% { transform: scaleY(1); opacity: 1; } 
+}

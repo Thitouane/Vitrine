@@ -20,7 +20,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
@@ -29,16 +28,22 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
-  flex: 1;
 }
 
 .footer-right {
   display: flex;
+  justify-content: end;
   gap: 0.5rem;
   margin-left: auto;
+  margin-right: 5rem;
 }
-
-
+.footer-left {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+  margin-right: auto;
+  margin-left: 5rem;
+}
 .footer-right img.flag {
   width: 30px;   /* taille des drapeaux */
   height: auto;
@@ -46,7 +51,14 @@
   opacity: 0.6;
   transition: opacity 0.2s;
 }
-
+.footer-left img.flag {
+  width: 30px;   /* taille des drapeaux */
+  height: auto;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0s;
+  opacity: 0;
+}
 .footer-right img.flag.active {
   opacity: 1;
   border: 1px solid #fff;
@@ -58,7 +70,8 @@
 .footer-controls::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%;
   height: 2px;
   pointer-events: none;
@@ -89,7 +102,6 @@
   background: #0f0;
   color: #111;
 }
-
 
 /* Mobile */
 @media (max-width: 768px) {  

@@ -48,7 +48,7 @@ export default function Profile() {
 
                         <RGBGlitch className="profile-info-row">
                             <span className="profile-label">
-                                Niveau{/*t('profile-birthdate')*/} :
+                                {t('profile-birthdate')} :
                             </span>
                             <span className="profile-value">
                                 {new Date().getFullYear() - 1999} 
@@ -57,7 +57,7 @@ export default function Profile() {
                         
                         <RGBGlitch className="profile-info-row">
                             <span className="profile-label">
-                                Classe {/*t('profile-job')*/} :
+                                {t('profile-job')} :
                             </span>
                             <span className="profile-value">
                                 {t('profile-job-answer')}
@@ -81,28 +81,28 @@ export default function Profile() {
                             <span className="profile-label">
                                 ATK :
                             </span>
-                            <ProgressBar value={10} segments={10} showLabel={true} />
+                            <ProgressBar value={30} segments={10} showLabel={true} />
                         </RGBGlitch>
 
                         <RGBGlitch className="profile-info-row">
                             <span className="profile-label">
                                 PSY :
                             </span>
-                            <ProgressBar value={10} segments={10} showLabel={true} />
+                            <ProgressBar value={50} segments={10} showLabel={true} />
                         </RGBGlitch>
 
                         <RGBGlitch className="profile-info-row">
                             <span className="profile-label">
                                 DEF :
                             </span>
-                            <ProgressBar value={10} segments={10} showLabel={true} />
+                            <ProgressBar value={55} segments={10} showLabel={true} />
                         </RGBGlitch>
 
                         <RGBGlitch className="profile-info-row">
                             <span className="profile-label">
                                 VIT :
                             </span>
-                            <ProgressBar value={10} segments={10} showLabel={true} />
+                            <ProgressBar value={20} segments={10} showLabel={true} />
                         </RGBGlitch>
 
                     </div> 
